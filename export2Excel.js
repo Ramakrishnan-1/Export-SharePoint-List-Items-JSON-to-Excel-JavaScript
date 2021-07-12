@@ -1,20 +1,19 @@
 $(document).ready(function() {
 	$("#pageTitle").hide();
 
-	fnGetListNames();//Bind custom lists to radio buttons 
+	fnGetListNames();//Bind the lists to radio buttons 
 
 	$("#exportListBtn").on("click", function() {
-        var selectedVal = $("input[type='radio']:checked").val();
+		var selectedVal = $("input[type='radio']:checked").val();
 		if(selectedVal){
-            $("#exportListBtn").hide();
-            $("#alertMsg").text('File Ready To Download!');
-            $("#alert").css("display", "block");
-            fnExport2Excel(selectedVal);
-        } else{
-            alert('Select a list to export.!');
-        }
+		    $("#exportListBtn").hide();
+		    $("#alertMsg").text('File Ready To Download!');
+		    $("#alert").css("display", "block");
+		    fnExport2Excel(selectedVal);
+		} else{
+		    alert('Select a list to export.!');
+		}
 	});
-	
 });
 
 function fnGetListNames() {
@@ -52,10 +51,10 @@ function fnExport2Excel(selectedValue) {
 		success: function(data, status, xhr) {
 			var listData = data.d.results;
 			var fileName = selectedValue+'.xlsx';
-            var jsonToSheet = XLSX.utils.json_to_sheet(listData);
-            var excelBook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(excelBook, jsonToSheet, selectedValue);
-            XLSX.writeFile(excelBook, fileName);
+			var jsonToSheet = XLSX.utils.json_to_sheet(listData);
+			var excelBook = XLSX.utils.book_new();
+			XLSX.utils.book_append_sheet(excelBook, jsonToSheet, selectedValue);
+			XLSX.writeFile(excelBook, fileName);
 		},
 		error: function(xhr, status, error) {
 			console.log("Failed to download");
