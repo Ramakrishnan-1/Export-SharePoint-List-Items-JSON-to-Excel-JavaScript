@@ -1,0 +1,49 @@
+<HTML>
+    <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"></script>
+       <script src="../SiteAssets/Export2Excel/export2Excel.js"></script>
+       <style>
+           .card {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 40%;
+                margin: 25px auto;
+            }
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+            .container {
+                padding: 2px 16px;
+            }
+            h4, #exportListDiv, #listNamesID{
+              text-align: center;
+              margin: 20px auto;
+            }
+          #listNamesID td {
+            padding: 0px 20px;
+          }
+       </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="container">
+              <h4>Choose a list to export</h4>
+              <table id="listNamesID">
+
+              </table>
+              <div id="exportListDiv">
+                <button type="button" class="btn btn-primary" id="exportListBtn">Export to Excel</button>
+                <div class="alert alert-success" id="alert" style="display: none;">
+                  <strong id="alertMsg"></strong>
+                </div>
+              </div>
+            </div>
+        </div>   
+    </body>
+ </html>
